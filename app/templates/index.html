@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Blissful</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+	<meta name="author" content="" />
+
+	<!-- CSS
+  ================================================== -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/prettyPhoto.css') }}" />
+
+	<!-- Favicons
+	================================================== -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+
+</head>
+
+<body>
+<div id="bodychild">
+	<div id="outercontainer">
+    	
+        <!-- HEADER -->
+        <div id="outerheader">
+            <header id="top">
+            	
+                <section id="navigation">
+                    <nav>
+                        <ul id="topnav" class="sf-menu">
+                            <li><a href="index.html"  class="current">Home</a></li>
+                            <li><a href="/cap">拍照识别</a></li>
+                        </ul><!-- topnav -->
+                    </nav><!-- nav -->
+                    <div class="clear"></div>
+                </section>
+                                
+                <div id="logo">
+                    <form action="api/upload" enctype='multipart/form-data' method='POST'>
+                        <input type="file" name="file" style="margin-top:20px;"/>
+                        <input type="submit" value="上传" class="button-new" style="margin-top:15px;"/>
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </header>
+        </div>
+        <!-- END HEADER -->
+        
+        <!-- SLIDER -->
+        <div id="outerslider">
+        	<div id="slidercontainer">
+                <section id="slider">
+
+                    <div id="feature_gallery">
+                          <div class="bigimg">
+                              <img src="static/images/content/slide1.jpg" alt="" class="change"  />
+                              <div class="slidedesc">ImageNet识别率一次提高1%：谷歌AI新突破引Jeff Dean点赞。</div>
+                          </div>
+                          <div class="bigimg">
+                              <img src="static/images/content/slide2.jpg" alt="" class="change"  />
+                               <div class="slidedesc">ICCV2019 | 港科大、清华与旷视提出基于元学习的自动化神经网络通道剪枝网络。</div>
+                          </div>
+                          <div class="bigimg">
+                              <img src="static/images/content/slide3.jpg" alt="" class="change"  />
+                               <div class="slidedesc">CVPR 2020投稿破万引爆社区，网友：听过斐波那契投稿法吗？。</div>
+                          </div>
+                          <div class="bigimg">
+                              <img src="static/images/content/slide1.jpg" alt="" class="change"  />
+                               <div class="slidedesc">微软全球执行副总裁沈向洋博士将于2020年离开微软。</div>
+                          </div>
+                          <div class="bigimg">
+                              <img src="static/images/content/slide2.jpg" alt="" class="change"  />
+                              <div class="slidedesc">只需单击三次，让中文GPT-2为你生成定制故事。</div>
+                          </div>
+                          <div class="bigimg">
+                              <img src="static/images/content/slide3.jpg" alt="" class="change"  />
+                               <div class="slidedesc">炉石传说哪个职业最imba？有人跑了一通AI模型，反正术士最弱。</div>
+                          </div>
+                    </div>
+
+                    <div id="pager-container">
+                     	<a href="#" id="mycarousel-prev"></a> <a href="#" id="mycarousel-next"></a>                     
+                    </div>
+ 
+                </section>
+            </div>
+        </div>
+        <!-- END SLIDER -->
+        <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
+
+        <!-- FOOTER -->
+        <div id="outerfooter">
+        	<div id="footercontainer">
+            	<footer id="footer">&copy; Copyright &copy; 2013.Company name All rights reserved.<a target="_blank" href="http://www.cssmoban.com/"></a> - More Templates <a href="http://www.chchuan.cn" target="_blank" title="chair">chair</a></footer>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+        
+        <div class="clear"></div>
+	</div> <!-- end outercontainer -->
+    
+</div> <!-- end bodychild -->
+
+<!-- Javascript
+================================================== -->
+<script type="text/javascript" src="static/js/jquery-1.6.4.min.js"></script>
+<!-- jQuery Superfish -->
+<script type="text/javascript" src="static/js/hoverIntent.js"></script>
+<script type="text/javascript" src="static/js/superfish.js"></script>
+<script type="text/javascript" src="static/js/supersubs.js"></script>
+
+<!-- Custom Script -->
+<script type="text/javascript" src="static/js/custom.js"></script>
+
+<!-- Slider -->
+<script type="text/javascript" src="static/js/jquery.jcarousel.pack.js"></script>
+<script type="text/javascript" src="static/js/gallery.js"></script>
+<script type="text/javascript" src="static/js/jquery.cycle.all.min.js"></script>
+
+</body>
+</html>

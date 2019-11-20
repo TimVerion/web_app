@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上线项目</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <style>
+        .booth {
+            width: 400px;
+            background: #ccc;
+            border: 10px solid #ddd;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="booth">
+
+    <video id="video" width="400" height="300"></video>
+    <button id='tack'>拍照</button>
+    <canvas id='canvas' width='400' height='300' style="display:none"></canvas>
+    <img id='img' src='' name="img">
+    <img id="img_show" width="400" height="300" src="" style="display:none">
+</div>
+<div id="zimu">
+</div>
+
+<script>
+    var video = document.getElementById('video'),
+        canvas = document.getElementById('canvas'),
+        snap = document.getElementById('tack'),
+        img = document.getElementById('img'),
+        vendorUrl = window.URL || window.webkitURL;
+
+    //媒体对象
+    navigator.getMedia = navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia;
+    navigator.getMedia({
+        video: true, //使用摄像头对象
+        audio: false  //不适用音频
+    }, function (strem) {
+        //这个方法要报错：video.src = window.URL.createObjectURL(strem);
+        video.srcObject = strem;
+        video.onloadedmetadata = function (e) {
+            video.play();
+        };
+    }, function (error) {
+        console.log(error);
+    });
+    var index = 1;
+    var names = [];
+
+    function isAllEqual(array) {
+        if (array.length > 0) {
+            return !array.some(function (value, index) {
+                return value !== array[0];
+            });
+        } else {
+            return true;
+        }
+    }
+    snap.addEventListener('click', function () {
+        canvas.getContext('2d').drawImage(video, 0, 0, 400, 300);
+        img = canvas.toDataURL('image/jpg')
+        img = img.split(',')[1];
+        img = img.toString()
+        $.ajax({
+            url: '/api/capture',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                "base64_11":img,
+            }),
+            success:(data) =>{
+                console.log(data);
+                window.location.href="/show"
+            }
+        })
+    })
+
+</script>
+
+</body>
+</html>
