@@ -4,7 +4,7 @@ certifi==2019.9.11
 Click==7.0
 cycler==0.10.0
 Flask==1.1.1
-html5lib==0.9999999
+html5lib==0.999999999
 itsdangerous==1.1.0
 Jinja2==2.10.3
 kiwisolver==1.1.0
